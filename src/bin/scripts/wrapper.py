@@ -17,8 +17,6 @@ def main():
     if os.path.isdir( lib_path ):
         os.environ["PYTHONPATH"] = lib_path + (os.pathsep + os.environ.get("PYTHONPATH") if os.environ.get("PYTHONPATH")!=None else "")
 
-    print(os.environ.get("PYTHONPATH"))
-    print(sys.path)
     python_exe = sys.executable
 
     if sys.version_info[0] < 3:
