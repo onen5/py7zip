@@ -17,27 +17,11 @@ def main():
     if os.path.isdir( lib_path ):
         os.environ["PYTHONPATH"] = lib_path + (os.pathsep + os.environ.get("PYTHONPATH") if os.environ.get("PYTHONPATH")!=None else "")
 
-    use_ipython = os.path.exists( os.path.join(script_path, basename + '.ipy') )
-
-    python_exe = ''
-    if use_ipython:
-        python_exe = sproc.check_output(['which', 'ipython']).rstrip()
-    else:
-        python_exe = sys.executable
-
+    python_exe = sys.executable
 
     if sys.version_info[0] < 3:
         try:
-            py3exe = ''
-            # we may or may not want this text.  Defaults tend to be py2 so this will be printed every time.
-            # print( 'Found ' + py3exe + '.  Switching interpreter to this version' )
-            
-            if use_ipython:
-                py3exe = sproc.check_output(['which', 'ipython3']).rstrip()
-            else:
-                py3exe = sproc.check_output(['which', 'python3']).rstrip()
-
-            python_exe = py3exe
+            python_exe = sproc.check_output(['which', 'python3']).rstrip()
         except:
             print( 'Python 3 must be installed!' )
             exit( os.EX_USAGE )
@@ -45,7 +29,7 @@ def main():
     args = sys.argv
     args.pop(0)
     args.insert(0, python_exe)
-    args.insert(1, os.path.join(script_path, basename + ('.ipy' if use_ipython else '.py')))
+    args.insert(1, os.path.join(script_path, basename + '.py'))
 
     try:
         exit( sproc.call(args) )
