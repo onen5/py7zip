@@ -1,0 +1,30 @@
+# full file found here: https://github.com/PyCQA/pylint/blob/master/pylintrc
+
+[BASIC]
+good-names=
+    i,j,k,e,ex,py7zip
+
+[FORMAT]
+max-line-length=200
+
+[MASTER]
+init-hook='import os;import sys;sys.path.append(os.path.join(os.getcwd(),'src','pylib'));sys.path.append(os.path.join(os.getcwd(),'test','pylib'))'
+
+ignore=
+    .pyenv,
+    .tox
+
+[MESSAGES CONTROL]
+disable=
+    bad-whitespace,
+    missing-docstring
+
+[MISCELLANEOUS]
+    # List of note tags to take in consideration, separated by a comma.
+    # original: FIXME, TODO
+    notes=FIXME
+
+[TYPECHECK]
+generated-members=
+    const.*
+    py7zip.*

@@ -1,0 +1,12 @@
+# .coveragerc to control coverage.py
+
+[run]
+branch = True
+omit =
+    *.local/*
+    *.tox/*
+    *site-packages/*
+    *test/pylib/*
+	*/test_*
+    *conftest.py
+    *etc/*

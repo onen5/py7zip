@@ -1,0 +1,8 @@
+# --extra-index-url https://....
+# ^ --- this line might be optional if you create [~/.config/pip/pip.conf] and put the following in it.
+#[global]
+#index-url = https://....
+
+# libarchive
+# asn1crypto???
+pycryptodome

@@ -1,0 +1,16 @@
+
+# Editors and extensions
+*.swp
+.history/
+.vscode/
+##
+
+scratch/
+
+# Python generated
+#   if it isn't listed, it might be removed by default during processing
+.coverage
+.tox/
+__pycache__/
+htmlcov/
+##
