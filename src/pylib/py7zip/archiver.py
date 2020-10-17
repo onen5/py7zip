@@ -107,6 +107,7 @@ class Archiver:
                 with open(extract_filepath, 'wb') as f_out:
                     shutil.copyfileobj(f_in, f_out)
         except tarfile.TarError:
+            # pylint: disable=raise-missing-from
             raise ArchiverFileFormatException('File ({0}) is not a compressed or uncompressed tar file.'.format(archive_filepath))
 
 
@@ -116,6 +117,7 @@ class Archiver:
         try:
             tar = tarfile.open(archive_filepath)
         except tarfile.TarError:
+            # pylint: disable=raise-missing-from
             raise ArchiverFileFormatException('File ({0}) is not a compressed or uncompressed tar file.'.format(archive_filepath))
 
         try:
@@ -132,6 +134,7 @@ class Archiver:
                 with open(extract_filepath, 'wb') as f_out:
                     shutil.copyfileobj(f_in, f_out)
         except tarfile.TarError:
+            # pylint: disable=raise-missing-from
             raise ArchiverFileFormatException('File ({0}) is not a compressed or uncompressed tar file.'.format(archive_filepath))
 
 
